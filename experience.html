@@ -3,148 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Space Studio — Immersive Walkthrough</title>
-  <meta name="description" content="A real-time 3D walkthrough of a Space Studio interior. Navigate with WASD and the mouse." />
+  <title>Space Studio — Immersive Rooms</title>
+  <meta name="description" content="A cinematic 3D tour of five curated rooms designed by Space Studio." />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    /* Full-bleed canvas mode — hide default page chrome styling spill */
-    html, body { height: 100%; margin: 0; background: #000; color: #fff; overflow: hidden; }
-    .experience { position: fixed; inset: 0; }
-    #xp-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: crosshair; }
+    html, body { height: 100%; margin: 0; background: #0b0b0f; color: #fff; overflow: hidden;
+      font-family: 'Helvetica Neue', Arial, sans-serif; }
+    .xp { position: fixed; inset: 0; }
+    #xp-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 
-    /* HUD overlay */
-    .xp-hud {
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none; font-family: 'Helvetica Neue', Arial, sans-serif;
-      text-transform: uppercase; letter-spacing: .08em; color: #fff;
-    }
-    .xp-hud__top {
+    /* Top bar */
+    .xp-top {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 5;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 16px 22px; font-size: 11px; font-weight: 600;
-      border-bottom: 1px solid rgba(255,255,255,.14);
+      padding: 16px 22px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
       background: linear-gradient(180deg, rgba(0,0,0,.5), rgba(0,0,0,0));
       pointer-events: auto;
     }
-    .xp-hud__top a { color: #fff; text-decoration: none; border-bottom: 1px solid transparent; }
-    .xp-hud__top a:hover { border-bottom-color: #fff; }
-    .xp-hud__brand { display: inline-flex; align-items: center; gap: 10px; }
-    .xp-hud__brand .mark { display: inline-block; width: 14px; height: 14px; background: #fff; }
+    .xp-top a { color: #fff; text-decoration: none; border-bottom: 1px solid transparent; }
+    .xp-top a:hover { border-bottom-color: #fff; }
+    .xp-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; }
+    .xp-brand .mark { display: inline-block; width: 14px; height: 14px; background: #fff; }
 
-    .xp-hud__bottom {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      display: flex; justify-content: space-between; align-items: flex-end;
-      padding: 16px 22px; font-size: 10px; gap: 24px;
-      background: linear-gradient(0deg, rgba(0,0,0,.55), rgba(0,0,0,0));
+    /* Room info card */
+    .xp-info {
+      position: absolute; left: 24px; bottom: 140px; z-index: 4;
+      max-width: 380px; padding: 22px 24px;
+      background: rgba(10, 10, 14, 0.55); backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.12);
+      color: #fff; text-transform: uppercase; letter-spacing: .08em;
+      transition: opacity .5s ease, transform .5s ease;
     }
-    .xp-hud__controls { display: flex; gap: 18px; flex-wrap: wrap; }
-    .xp-hud__controls span b {
-      display: inline-block; min-width: 22px; padding: 2px 6px; margin-right: 6px;
-      border: 1px solid #fff; text-align: center; font-weight: 600;
-    }
-    .xp-hud__meta { text-align: right; color: #bdbdbd; }
-    .xp-hud__meta strong { color: #fff; display: block; font-size: 12px; letter-spacing: .16em; }
+    .xp-info.swapping { opacity: 0; transform: translateY(8px); }
+    .xp-info__eyebrow { font-size: 10px; color: #cfd3dc; letter-spacing: .2em; margin-bottom: 8px; }
+    .xp-info__title  { font-size: 26px; font-weight: 800; margin: 0 0 10px; line-height: 1; letter-spacing: .04em; }
+    .xp-info__sub    { font-size: 11px; color: #e3e5ea; margin: 0 0 14px; }
+    .xp-info__desc   { font-size: 12px; line-height: 1.7; color: #d9dce3; text-transform: none; letter-spacing: .01em; }
+    .xp-info__palette { display: flex; gap: 6px; margin-top: 16px; }
+    .xp-info__palette span { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); }
 
-    /* Crosshair */
-    .xp-hud__crosshair {
-      position: absolute; top: 50%; left: 50%; width: 18px; height: 18px;
-      margin: -9px 0 0 -9px; pointer-events: none; opacity: .75;
+    /* Room selector tabs */
+    .xp-rooms {
+      position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 5;
+      display: flex; gap: 10px; padding: 10px;
+      background: rgba(10,10,14,.65); backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,.12);
     }
-    .xp-hud__crosshair::before, .xp-hud__crosshair::after {
-      content: ''; position: absolute; background: #fff;
+    .xp-rooms button {
+      appearance: none; border: 1px solid rgba(255,255,255,.18); background: transparent;
+      color: #fff; cursor: pointer; padding: 10px 16px; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .14em; transition: all .2s ease;
+      display: inline-flex; align-items: center; gap: 10px;
     }
-    .xp-hud__crosshair::before { top: 8px; left: 0; right: 0; height: 2px; }
-    .xp-hud__crosshair::after  { left: 8px; top: 0; bottom: 0; width: 2px; }
+    .xp-rooms button:hover { background: rgba(255,255,255,.08); }
+    .xp-rooms button.active { background: #fff; color: #000; border-color: #fff; }
+    .xp-rooms button .swatch {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--swatch, #fff); box-shadow: 0 0 0 1px rgba(0,0,0,.25) inset;
+    }
+    .xp-rooms .count { color: #8a8f99; margin-left: 4px; font-size: 10px; letter-spacing: .2em; }
 
-    /* Start overlay */
-    .xp-start {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      background: rgba(0,0,0,.72); backdrop-filter: blur(6px);
-      font-family: 'Helvetica Neue', Arial, sans-serif; color: #fff;
-      text-transform: uppercase; letter-spacing: .1em; text-align: center;
-      pointer-events: auto; z-index: 10; transition: opacity .3s ease;
+    /* Prev/next floating arrows */
+    .xp-nav {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 4;
+      width: 54px; height: 54px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2);
+      background: rgba(10,10,14,.45); color: #fff; font-size: 22px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      backdrop-filter: blur(10px); transition: background .2s;
     }
-    .xp-start.hidden { opacity: 0; pointer-events: none; }
-    .xp-start__panel { max-width: 520px; padding: 44px 40px; border: 1px solid rgba(255,255,255,.25); background: rgba(0,0,0,.5); }
-    .xp-start__eyebrow { font-size: 11px; color: #bdbdbd; margin-bottom: 18px; }
-    .xp-start__title { font-size: clamp(28px, 4vw, 46px); font-weight: 800; line-height: 1; margin: 0 0 18px; letter-spacing: .04em; }
-    .xp-start__lede { font-size: 12px; color: #cfcfcf; line-height: 1.7; margin: 0 0 28px; }
-    .xp-start__btn {
-      display: inline-block; padding: 14px 26px; border: 1px solid #fff; font-size: 11px; font-weight: 700;
-      background: #fff; color: #000; cursor: pointer; letter-spacing: .18em;
-      transition: background .2s, color .2s;
-    }
-    .xp-start__btn:hover { background: #000; color: #fff; }
-    .xp-start__keys { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 24px; margin: 22px 0 28px; text-align: left; font-size: 10px; color: #cfcfcf; }
-    .xp-start__keys b {
-      display: inline-block; min-width: 28px; padding: 3px 7px; margin-right: 10px;
-      border: 1px solid #fff; color: #fff; text-align: center; font-weight: 600;
-    }
-    .xp-loading { font-size: 11px; color: #888; margin-top: 18px; }
+    .xp-nav:hover { background: rgba(255,255,255,.12); }
+    .xp-nav--prev { left: 22px; }
+    .xp-nav--next { right: 22px; }
 
-    @media (max-width: 640px) {
-      .xp-hud__controls { display: none; }
-      .xp-hud__bottom { padding: 12px 16px; }
-      .xp-hud__top { padding: 12px 16px; font-size: 10px; }
+    /* Loading */
+    .xp-loading {
+      position: absolute; inset: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: center;
+      background: #0b0b0f; color: #fff; letter-spacing: .22em; font-size: 11px;
+      transition: opacity .5s ease;
+    }
+    .xp-loading.hidden { opacity: 0; pointer-events: none; }
+    .xp-loading .dot { display: inline-block; width: 6px; height: 6px; margin: 0 3px;
+      background: #fff; border-radius: 50%; animation: pulse 1.2s infinite ease-in-out; }
+    .xp-loading .dot:nth-child(2){ animation-delay: .2s; }
+    .xp-loading .dot:nth-child(3){ animation-delay: .4s; }
+    @keyframes pulse { 0%,80%,100%{opacity:.25;transform:scale(.8);} 40%{opacity:1;transform:scale(1);} }
+
+    @media (max-width: 720px) {
+      .xp-info { left: 16px; right: 16px; bottom: 110px; max-width: none; padding: 16px 18px; }
+      .xp-rooms { gap: 6px; padding: 6px; flex-wrap: wrap; justify-content: center;
+                   left: 12px; right: 12px; transform: none; }
+      .xp-rooms button { padding: 8px 12px; font-size: 10px; }
+      .xp-rooms button span.label { display: none; }
+      .xp-nav { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="experience">
+  <div class="xp">
     <canvas id="xp-canvas"></canvas>
 
-    <!-- HUD -->
-    <div class="xp-hud">
-      <div class="xp-hud__top">
-        <a href="index.html" class="xp-hud__brand"><span class="mark"></span>SPACE STUDIO</a>
-        <a href="index.html">← EXIT WALKTHROUGH</a>
-      </div>
-
-      <div class="xp-hud__crosshair"></div>
-
-      <div class="xp-hud__bottom">
-        <div class="xp-hud__controls">
-          <span><b>W A S D</b>MOVE</span>
-          <span><b>MOUSE</b>LOOK</span>
-          <span><b>SHIFT</b>SPRINT</span>
-          <span><b>SPACE</b>JUMP</span>
-          <span><b>ESC</b>RELEASE CURSOR</span>
-        </div>
-        <div class="xp-hud__meta">
-          <strong>MONOLITH HOUSE</strong>
-          <span>INTERIOR · REAL-TIME 3D</span>
-        </div>
-      </div>
+    <div class="xp-top">
+      <a href="index.html" class="xp-brand"><span class="mark"></span>SPACE STUDIO</a>
+      <a href="index.html">← EXIT</a>
     </div>
 
-    <!-- Start overlay -->
-    <div class="xp-start" id="xpStart">
-      <div class="xp-start__panel">
-        <div class="xp-start__eyebrow">+IMMERSIVE · 2026</div>
-        <h1 class="xp-start__title">STEP<br/>INSIDE.</h1>
-        <p class="xp-start__lede">A real-time walkthrough of an archetypal Space Studio interior — a single volume negotiated through light, stone and shadow. Use the mouse to look, WASD to move.</p>
-        <div class="xp-start__keys">
-          <span><b>W</b>FORWARD</span>
-          <span><b>S</b>BACKWARD</span>
-          <span><b>A</b>LEFT</span>
-          <span><b>D</b>RIGHT</span>
-          <span><b>⇧</b>SPRINT</span>
-          <span><b>␣</b>JUMP</span>
-        </div>
-        <button class="xp-start__btn" id="xpEnterBtn" type="button">ENTER WALKTHROUGH &nbsp;→</button>
-        <div class="xp-loading" id="xpLoading">LOADING SCENE…</div>
-      </div>
+    <button class="xp-nav xp-nav--prev" id="xpPrev" aria-label="Previous room">‹</button>
+    <button class="xp-nav xp-nav--next" id="xpNext" aria-label="Next room">›</button>
+
+    <div class="xp-info" id="xpInfo">
+      <div class="xp-info__eyebrow" id="xpEyebrow">+ROOM 01 / 05</div>
+      <h2 class="xp-info__title" id="xpTitle">LIVING ROOM</h2>
+      <div class="xp-info__sub" id="xpSub">THE COMMONS · SOUTH FACING</div>
+      <p class="xp-info__desc" id="xpDesc">A conversation pit anchored by a travertine hearth — saturated warmth, layered textiles, and a garden view through floor-to-ceiling glass.</p>
+      <div class="xp-info__palette" id="xpPalette"></div>
+    </div>
+
+    <div class="xp-rooms" id="xpRooms">
+      <!-- buttons injected by JS -->
+    </div>
+
+    <div class="xp-loading" id="xpLoading">
+      LOADING SCENE <span class="dot"></span><span class="dot"></span><span class="dot"></span>
     </div>
   </div>
 
-  <!-- Three.js via ES modules -->
   <script type="importmap">
     {
       "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
       }
     }
   </script>
+
+  <script>
+    (function () {
+      const show = (msg) => {
+        const el = document.getElementById('xpLoading');
+        if (el) { el.style.color = '#ff8a8a'; el.innerHTML = 'ERROR — ' + msg; }
+        console.error('[experience]', msg);
+      };
+      window.addEventListener('error', (e) => show((e.message || 'script error') + (e.filename ? ' @ ' + e.filename.split('/').pop() : '')));
+      window.addEventListener('unhandledrejection', (e) => show('promise: ' + (e.reason && (e.reason.message || e.reason))));
+    })();
+  </script>
+
   <script type="module" src="js/experience.js"></script>
 </body>
 </html>
