@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Studio — Architecture · Interior · Furniture · Product</title>
+  <meta name="description" content="Space Studio is a multidisciplinary design practice working across architecture, interior, furniture and product." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="logo-mark">◼</span>
+      <span>SPACE&nbsp;STUDIO</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="index.html" class="active">PROJECTS</a>
+      <a href="services.html">SERVICES</a>
+      <a href="about.html">ABOUT</a>
+      <a href="about.html#team">PEOPLE</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span></button>
+  </header>
+
+  <!-- FILTER BAR -->
+  <nav class="filter-bar" aria-label="Filter projects">
+    <button class="filter active" data-filter="all">+ALL</button>
+    <button class="filter" data-filter="architecture">+ARCHITECTURE</button>
+    <button class="filter" data-filter="interior">+INTERIORS</button>
+    <button class="filter" data-filter="furniture">+FURNITURE</button>
+    <button class="filter" data-filter="product">+PRODUCTS</button>
+    <span class="filter-bar__end" id="filterCount">16 PROJECTS</span>
+  </nav>
+
+  <main class="hero">
+    <!-- HERO BANNER -->
+    <section class="hero__banner">
+      <span class="hero__banner-label">+FEATURED — 2026</span>
+      <div class="hero__banner-media"><div class="placeholder placeholder--1"></div></div>
+      <div class="hero__banner-overlay"></div>
+      <div class="hero__banner-caption">
+        <h1>MONOLITH<br/>HOUSE</h1>
+        <p>A PRIVATE RESIDENCE CARVED FROM A SINGLE BLACK VOLUME.<br/>KYOTO, JAPAN.</p>
+      </div>
+    </section>
+
+    <!-- PROJECT GRID — BIG.dk-style icon tiles -->
+    <section class="project-grid" id="projectGrid">
+
+      <a href="#" class="project-tile" data-category="architecture">
+        <div class="project-tile__icon">
+          <!-- stacked block icon -->
+          <svg viewBox="0 0 52 52"><rect x="8" y="20" width="36" height="24" fill="currentColor"/><rect x="14" y="10" width="24" height="12" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>MONOLITH HOUSE</h3>
+          <span class="project-tile__meta">KYOTO, JAPAN</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="interior">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="6" y="10" width="40" height="32" fill="none" stroke="currentColor" stroke-width="2"/><line x1="6" y1="28" x2="46" y2="28" stroke="currentColor" stroke-width="2"/><rect x="14" y="32" width="10" height="10" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>ATELIER NOIR</h3>
+          <span class="project-tile__meta">PARIS, FRANCE</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="furniture">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="10" y="14" width="32" height="8" fill="currentColor"/><rect x="10" y="22" width="4" height="22" fill="currentColor"/><rect x="38" y="22" width="4" height="22" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>OBSIDIAN CHAIR</h3>
+          <span class="project-tile__meta">MILAN, ITALY</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="product">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><circle cx="26" cy="18" r="10" fill="currentColor"/><rect x="24" y="28" width="4" height="18" fill="currentColor"/><rect x="16" y="44" width="20" height="3" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>GRAVITAS LAMP</h3>
+          <span class="project-tile__meta">COPENHAGEN, DK</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="architecture">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><polygon points="26,8 46,44 6,44" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>THE QUIET PAVILION</h3>
+          <span class="project-tile__meta">OSLO, NORWAY</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="interior">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="8" y="8" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2"/><rect x="16" y="16" width="20" height="20" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>HOUSE OF ASH</h3>
+          <span class="project-tile__meta">TOKYO, JAPAN</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="furniture">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="8" y="24" width="36" height="4" fill="currentColor"/><path d="M10 28 L10 44 M42 28 L42 44 M18 28 L18 38 M34 28 L34 38" stroke="currentColor" stroke-width="2" fill="none"/><rect x="14" y="18" width="24" height="6" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>EMBER TABLE</h3>
+          <span class="project-tile__meta">LONDON, ENGLAND</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="product">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="10" y="16" width="32" height="20" rx="3" fill="currentColor"/><circle cx="26" cy="26" r="4" fill="#fff"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>NOCTURNE SPEAKER</h3>
+          <span class="project-tile__meta">BERLIN, GERMANY</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="architecture">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="6" y="32" width="40" height="12" fill="currentColor"/><rect x="14" y="18" width="24" height="14" fill="currentColor"/><rect x="22" y="8" width="8" height="10" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>CASA SOMBRA</h3>
+          <span class="project-tile__meta">MEXICO CITY, MX</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="interior">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="18" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="26" cy="26" r="8" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>HOTEL VOID</h3>
+          <span class="project-tile__meta">LISBON, PORTUGAL</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="furniture">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><path d="M8 38 Q26 20 44 38 Z" fill="currentColor"/><rect x="10" y="38" width="32" height="4" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>ARC SOFA</h3>
+          <span class="project-tile__meta">STOCKHOLM, SE</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="product">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><path d="M26 6 L42 26 L26 46 L10 26 Z" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>PRISM DECANTER</h3>
+          <span class="project-tile__meta">PARIS, FRANCE</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="architecture">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="10" y="10" width="8" height="34" fill="currentColor"/><rect x="22" y="18" width="8" height="26" fill="currentColor"/><rect x="34" y="6" width="8" height="38" fill="currentColor"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>SKYLINE TOWER</h3>
+          <span class="project-tile__meta">SHENZHEN, CN</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="interior">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="8" y="22" width="36" height="16" fill="currentColor"/><rect x="12" y="14" width="28" height="8" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>LOFT N°07</h3>
+          <span class="project-tile__meta">NEW YORK, US</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="furniture">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="14" y="8" width="24" height="32" fill="none" stroke="currentColor" stroke-width="2"/><line x1="14" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="2"/><line x1="14" y1="30" x2="38" y2="30" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>MONO SHELVING</h3>
+          <span class="project-tile__meta">MILAN, ITALY</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-tile" data-category="product">
+        <div class="project-tile__icon">
+          <svg viewBox="0 0 52 52"><rect x="18" y="10" width="16" height="32" rx="2" fill="currentColor"/><rect x="22" y="14" width="8" height="20" fill="#fff"/></svg>
+        </div>
+        <div class="project-tile__info">
+          <h3>MONOLITH PHONE</h3>
+          <span class="project-tile__meta">SEOUL, KR</span>
+        </div>
+      </a>
+
+    </section>
+
+    <!-- SERVICES ROW LIST -->
+    <section class="block">
+      <div class="block__head">
+        <h2>SERVICES</h2>
+        <span class="plus">+ FOUR DISCIPLINES</span>
+      </div>
+      <div>
+        <a href="services.html#architecture" class="service-row">
+          <span class="service-row__num">01 / ARCH</span>
+          <span class="service-row__title">+ARCHITECTURE</span>
+          <span class="service-row__desc">Residential, cultural and commercial architecture negotiating light, context and permanence.</span>
+          <span class="service-row__arrow">→</span>
+        </a>
+        <a href="services.html#interior" class="service-row">
+          <span class="service-row__num">02 / INT</span>
+          <span class="service-row__title">+INTERIORS</span>
+          <span class="service-row__desc">Spatial narratives composed through texture, silhouette and atmosphere.</span>
+          <span class="service-row__arrow">→</span>
+        </a>
+        <a href="services.html#furniture" class="service-row">
+          <span class="service-row__num">03 / FUR</span>
+          <span class="service-row__title">+FURNITURE</span>
+          <span class="service-row__desc">Bespoke and limited-edition pieces crafted as quiet sculpture.</span>
+          <span class="service-row__arrow">→</span>
+        </a>
+        <a href="services.html#product" class="service-row">
+          <span class="service-row__num">04 / PRO</span>
+          <span class="service-row__title">+PRODUCTS</span>
+          <span class="service-row__desc">Everyday objects reduced to essential form — lighting, homeware, electronics.</span>
+          <span class="service-row__arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-row">
+      <div class="stat"><span class="stat__num">140+</span><span class="stat__label">PROJECTS DELIVERED</span></div>
+      <div class="stat"><span class="stat__num">22</span><span class="stat__label">COUNTRIES</span></div>
+      <div class="stat"><span class="stat__num">14</span><span class="stat__label">YEARS OF PRACTICE</span></div>
+      <div class="stat"><span class="stat__num">38</span><span class="stat__label">DESIGN AWARDS</span></div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="block">
+      <div class="block__head">
+        <h2>APPROACH</h2>
+        <span class="plus">+ ABOUT THE STUDIO</span>
+      </div>
+      <div class="two-col">
+        <div class="two-col__label">01 — STATEMENT</div>
+        <div class="two-col__body">
+          <p>At Space Studio, we design the full spectrum of the built environment — from the monolithic silhouette of a building, to the curvature of a chair, to the weight of an object in your hand.</p>
+          <p>Our work is defined by restraint, proportion and an obsession with material honesty. We believe good design is a form of subtraction — the disciplined removal of everything that is not essential.</p>
+          <p>A multidisciplinary practice operating from New York and Milan, we accept a limited number of commissions each year. Every project is led personally by one of our three partners.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        SPACE<br/>STUDIO
+        <small>A MULTIDISCIPLINARY DESIGN PRACTICE. ARCHITECTURE, INTERIOR, FURNITURE, PRODUCT.</small>
+      </div>
+      <div class="footer__col">
+        <h4>EMAIL</h4>
+        <a href="mailto:newbiz@spacestudio.design">NEW PROJECTS</a>
+        <a href="mailto:press@spacestudio.design">PRESS</a>
+        <a href="mailto:lectures@spacestudio.design">LECTURES</a>
+        <a href="mailto:careers@spacestudio.design">CAREERS</a>
+      </div>
+      <div class="footer__col">
+        <h4>OFFICE</h4>
+        <span>NEW YORK</span>
+        <span>MILAN</span>
+        <span>TOKYO</span>
+        <span>COPENHAGEN</span>
+      </div>
+      <div class="footer__col">
+        <h4>SOCIAL</h4>
+        <a href="#">INSTAGRAM</a>
+        <a href="#">BEHANCE</a>
+        <a href="#">LINKEDIN</a>
+        <a href="#">VIMEO</a>
+      </div>
+      <div class="footer__col">
+        <h4>LEGAL</h4>
+        <a href="#">PRIVACY POLICY</a>
+        <a href="#">TERMS</a>
+        <a href="#">IMPRESSUM</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 SPACE STUDIO · ALL RIGHTS RESERVED</span>
+      <span>BACK TO TOP ↑</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

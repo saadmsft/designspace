@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Space Studio</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a href="index.html" class="nav__logo"><span class="logo-mark">◼</span><span>SPACE&nbsp;STUDIO</span></a>
+    <nav class="nav__links" id="navLinks">
+      <a href="index.html">PROJECTS</a>
+      <a href="services.html">SERVICES</a>
+      <a href="about.html">ABOUT</a>
+      <a href="about.html#team">PEOPLE</a>
+      <a href="contact.html" class="active">CONTACT</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span></button>
+  </header>
+
+  <nav class="filter-bar" aria-label="Contact sections">
+    <a href="#enquire" class="filter active">+ENQUIRE</a>
+    <a href="#offices" class="filter">+OFFICES</a>
+    <a href="mailto:newbiz@spacestudio.design" class="filter">+NEWBIZ</a>
+    <a href="mailto:press@spacestudio.design" class="filter">+PRESS</a>
+    <span class="filter-bar__end">REPLY &lt; 48H</span>
+  </nav>
+
+  <main class="hero">
+    <section class="contact-grid" id="enquire">
+      <div class="contact-info">
+        <h2>LET'S BEGIN.</h2>
+        <p>TELL US ABOUT YOUR SITE, YOUR OBJECT, YOUR BRIEF. WE REPLY TO EVERY ENQUIRY PERSONALLY WITHIN TWO WORKING DAYS.</p>
+        <dl>
+          <dt>NEW PROJECTS</dt>
+          <dd><a href="mailto:newbiz@spacestudio.design">NEWBIZ@SPACESTUDIO.DESIGN</a></dd>
+          <dt>PRESS</dt>
+          <dd><a href="mailto:press@spacestudio.design">PRESS@SPACESTUDIO.DESIGN</a></dd>
+          <dt>CAREERS</dt>
+          <dd><a href="mailto:careers@spacestudio.design">CAREERS@SPACESTUDIO.DESIGN</a></dd>
+          <dt>LECTURES</dt>
+          <dd><a href="mailto:lectures@spacestudio.design">LECTURES@SPACESTUDIO.DESIGN</a></dd>
+          <dt>TELEPHONE</dt>
+          <dd>+1 (000) 000-0000</dd>
+        </dl>
+      </div>
+
+      <div class="contact-form-wrap">
+        <form class="form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">+NAME</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="email">+EMAIL</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="service">+SERVICE</label>
+            <select id="service" name="service">
+              <option>ARCHITECTURE</option>
+              <option>INTERIORS</option>
+              <option>FURNITURE</option>
+              <option>PRODUCTS</option>
+              <option>GENERAL ENQUIRY</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">+BUDGET</label>
+            <select id="budget" name="budget">
+              <option>UNDER $25,000</option>
+              <option>$25,000 – $100,000</option>
+              <option>$100,000 – $500,000</option>
+              <option>$500,000+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">+BRIEF</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">SEND ENQUIRY &nbsp;→</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="block" id="offices">
+      <div class="block__head">
+        <h2>OFFICES</h2>
+        <span class="plus">+ FOUR LOCATIONS</span>
+      </div>
+      <div>
+        <div class="service-row">
+          <span class="service-row__num">01 / NYC</span>
+          <span class="service-row__title">+NEW YORK</span>
+          <span class="service-row__desc">14 GROVE LANE, TRIBECA · NY 10013, UNITED STATES · +1 347 000 0000</span>
+          <span class="service-row__arrow">→</span>
+        </div>
+        <div class="service-row">
+          <span class="service-row__num">02 / MIL</span>
+          <span class="service-row__title">+MILAN</span>
+          <span class="service-row__desc">VIA SAVONA 97 · 20144 MILANO, ITALY · +39 02 000 0000</span>
+          <span class="service-row__arrow">→</span>
+        </div>
+        <div class="service-row">
+          <span class="service-row__num">03 / TYO</span>
+          <span class="service-row__title">+TOKYO</span>
+          <span class="service-row__desc">2-11-3 MINAMI AOYAMA · MINATO-KU, TOKYO 107-0062, JAPAN</span>
+          <span class="service-row__arrow">→</span>
+        </div>
+        <div class="service-row">
+          <span class="service-row__num">04 / CPH</span>
+          <span class="service-row__title">+COPENHAGEN</span>
+          <span class="service-row__desc">SUNDKAJ 12 · 2150 NORDHAVN, DENMARK · +45 00 00 00 00</span>
+          <span class="service-row__arrow">→</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">SPACE<br/>STUDIO<small>A MULTIDISCIPLINARY DESIGN PRACTICE. ARCHITECTURE, INTERIOR, FURNITURE, PRODUCT.</small></div>
+      <div class="footer__col"><h4>EMAIL</h4><a href="mailto:newbiz@spacestudio.design">NEW PROJECTS</a><a href="mailto:press@spacestudio.design">PRESS</a><a href="mailto:lectures@spacestudio.design">LECTURES</a><a href="mailto:careers@spacestudio.design">CAREERS</a></div>
+      <div class="footer__col"><h4>OFFICE</h4><span>NEW YORK</span><span>MILAN</span><span>TOKYO</span><span>COPENHAGEN</span></div>
+      <div class="footer__col"><h4>SOCIAL</h4><a href="#">INSTAGRAM</a><a href="#">BEHANCE</a><a href="#">LINKEDIN</a><a href="#">VIMEO</a></div>
+      <div class="footer__col"><h4>LEGAL</h4><a href="#">PRIVACY POLICY</a><a href="#">TERMS</a><a href="#">IMPRESSUM</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 SPACE STUDIO · ALL RIGHTS RESERVED</span><span>BACK TO TOP ↑</span></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
