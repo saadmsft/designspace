@@ -1,0 +1,17 @@
+id,title,location,category,year,icon,featured
+1,MONOLITH HOUSE,"KYOTO, JAPAN",architecture,2026,blocks,true
+2,ATELIER NOIR,"PARIS, FRANCE",interior,2025,room,false
+3,OBSIDIAN CHAIR,"MILAN, ITALY",furniture,2025,chair,false
+4,GRAVITAS LAMP,"COPENHAGEN, DK",product,2024,lamp,false
+5,THE QUIET PAVILION,"OSLO, NORWAY",architecture,2024,triangle,false
+6,HOUSE OF ASH,"TOKYO, JAPAN",interior,2024,square,false
+7,EMBER TABLE,"LONDON, ENGLAND",furniture,2024,table,false
+8,NOCTURNE SPEAKER,"BERLIN, GERMANY",product,2024,speaker,false
+9,CASA SOMBRA,"MEXICO CITY, MX",architecture,2023,tower,false
+10,HOTEL VOID,"LISBON, PORTUGAL",interior,2023,circle,false
+11,ARC SOFA,"STOCKHOLM, SE",furniture,2023,arc,false
+12,PRISM DECANTER,"PARIS, FRANCE",product,2023,diamond,false
+13,SKYLINE TOWER,"SHENZHEN, CN",architecture,2023,bars,false
+14,LOFT N°07,"NEW YORK, US",interior,2023,loft,false
+15,MONO SHELVING,"MILAN, ITALY",furniture,2022,shelf,false
+16,MONOLITH PHONE,"SEOUL, KR",product,2022,phone,false

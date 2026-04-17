@@ -46,19 +46,8 @@
       </div>
     </section>
 
-    <!-- PROJECT GRID — BIG.dk-style icon tiles -->
+    <!-- PROJECT GRID — rendered from data/projects.csv -->
     <section class="project-grid" id="projectGrid">
-
-      <a href="#" class="project-tile" data-category="architecture">
-        <div class="project-tile__icon">
-          <!-- stacked block icon -->
-          <svg viewBox="0 0 52 52"><rect x="8" y="20" width="36" height="24" fill="currentColor"/><rect x="14" y="10" width="24" height="12" fill="currentColor"/></svg>
-        </div>
-        <div class="project-tile__info">
-          <h3>MONOLITH HOUSE</h3>
-          <span class="project-tile__meta">KYOTO, JAPAN</span>
-        </div>
-      </a>
 
       <a href="#" class="project-tile" data-category="interior">
         <div class="project-tile__icon">
@@ -200,16 +189,6 @@
         </div>
       </a>
 
-      <a href="#" class="project-tile" data-category="product">
-        <div class="project-tile__icon">
-          <svg viewBox="0 0 52 52"><rect x="18" y="10" width="16" height="32" rx="2" fill="currentColor"/><rect x="22" y="14" width="8" height="20" fill="#fff"/></svg>
-        </div>
-        <div class="project-tile__info">
-          <h3>MONOLITH PHONE</h3>
-          <span class="project-tile__meta">SEOUL, KR</span>
-        </div>
-      </a>
-
     </section>
 
     <!-- SERVICES ROW LIST -->
@@ -218,41 +197,11 @@
         <h2>SERVICES</h2>
         <span class="plus">+ FOUR DISCIPLINES</span>
       </div>
-      <div>
-        <a href="services.html#architecture" class="service-row">
-          <span class="service-row__num">01 / ARCH</span>
-          <span class="service-row__title">+ARCHITECTURE</span>
-          <span class="service-row__desc">Residential, cultural and commercial architecture negotiating light, context and permanence.</span>
-          <span class="service-row__arrow">→</span>
-        </a>
-        <a href="services.html#interior" class="service-row">
-          <span class="service-row__num">02 / INT</span>
-          <span class="service-row__title">+INTERIORS</span>
-          <span class="service-row__desc">Spatial narratives composed through texture, silhouette and atmosphere.</span>
-          <span class="service-row__arrow">→</span>
-        </a>
-        <a href="services.html#furniture" class="service-row">
-          <span class="service-row__num">03 / FUR</span>
-          <span class="service-row__title">+FURNITURE</span>
-          <span class="service-row__desc">Bespoke and limited-edition pieces crafted as quiet sculpture.</span>
-          <span class="service-row__arrow">→</span>
-        </a>
-        <a href="services.html#product" class="service-row">
-          <span class="service-row__num">04 / PRO</span>
-          <span class="service-row__title">+PRODUCTS</span>
-          <span class="service-row__desc">Everyday objects reduced to essential form — lighting, homeware, electronics.</span>
-          <span class="service-row__arrow">→</span>
-        </a>
-      </div>
+      <div id="servicesRows"><!-- rendered from data/services.csv --></div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-row">
-      <div class="stat"><span class="stat__num">140+</span><span class="stat__label">PROJECTS DELIVERED</span></div>
-      <div class="stat"><span class="stat__num">22</span><span class="stat__label">COUNTRIES</span></div>
-      <div class="stat"><span class="stat__num">14</span><span class="stat__label">YEARS OF PRACTICE</span></div>
-      <div class="stat"><span class="stat__num">38</span><span class="stat__label">DESIGN AWARDS</span></div>
-    </section>
+    <!-- STATS — rendered from data/stats.csv -->
+    <section class="stats-row" id="statsRow"></section>
 
     <!-- INTRO -->
     <section class="block">
